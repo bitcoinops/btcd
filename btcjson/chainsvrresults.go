@@ -587,4 +587,20 @@ type GetBlockStatsResult struct {
 	Txs              int64 `json:"txs"`
 	UTXOIncrease     int64 `json:"utxo_increase"`
 	UTXOSizeIncrease int64 `json:"utxo_size_inc"`
+
+	NestedP2WPKHOutputsSpent int64 `json:"nested_p2wpkh_outputs_spent"`
+	NestedP2WSHOutputsSpent  int64 `json:"nested_p2wsh_outputs_spent"`
+	NativeP2WPKHOutputsSpent int64 `json:"native_p2wpkh_outputs_spent"`
+	NativeP2WSHOutputsSpent  int64 `json:"native_p2wsh_outputs_spent"`
+
+	TxsSpendingNestedP2WPKHOutputs int64 `json:"txs_spending_nested_p2wpkh_outputs"`
+	TxsSpendingNestedP2WSHOutputs  int64 `json:"txs_spending_nested_p2wsh_outputs"`
+	TxsSpendingNativeP2WPKHOutputs int64 `json:"txs_spending_native_p2wpkh_outputs"`
+	TxsSpendingNativeP2WSHOutputs  int64 `json:"txs_spending_native_p2wsh_outputs"`
+
+	NewP2WPKHOutputs int64 `json:"new_p2wpkh_outputs"`
+	NewP2WSHOutputs  int64 `json:"new_p2wsh_outputs"`
+
+	TxsCreatingP2WPKHOutputs int64 `json:"txs_creating_p2wpkh_outputs"`
+	TxsCreatingP2WSHOutputs  int64 `json:"txs_creating_p2wsh_outputs"`
 }
