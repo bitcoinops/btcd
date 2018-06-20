@@ -603,4 +603,13 @@ type GetBlockStatsResult struct {
 
 	TxsCreatingP2WPKHOutputs int64 `json:"txs_creating_p2wpkh_outputs"`
 	TxsCreatingP2WSHOutputs  int64 `json:"txs_creating_p2wsh_outputs"`
+
+	DustBins0 int64 `json:"dust_bins[0]"`
+	DustBins1 int64 `json:"dust_bins[1]"`
+	DustBins2 int64 `json:"dust_bins[2]"`
+	DustBins3 int64 `json:"dust_bins[3]"`
+	DustBins4 int64 `json:"dust_bins[4]"`
+	DustBins5 int64 `json:"dust_bins[5]"`
+	DustBins6 int64 `json:"dust_bins[6]"`
+	DustBins7 int64 `json:"dust_bins[7]"`
 }
