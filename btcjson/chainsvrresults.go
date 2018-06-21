@@ -612,4 +612,5 @@ type GetBlockStatsResult struct {
 	DustBins5 int64 `json:"dust_bins[5]"`
 	DustBins6 int64 `json:"dust_bins[6]"`
 	DustBins7 int64 `json:"dust_bins[7]"`
+	DustBins8 int64 `json:"dust_bins[8]"`
 }
