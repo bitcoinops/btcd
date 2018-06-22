@@ -549,7 +549,7 @@ type ValidateAddressChainResult struct {
 	Address string `json:"address,omitempty"`
 }
 
-// GetBlockStatsResult models the data from the getblockstast command.
+// GetBlockStatsResult models the data from the getblockstats command.
 type GetBlockStatsResult struct {
 	AverageFee     int64 `json:"avgfee"`
 	AverageFeeRate int64 `json:"avgfeerate"`
