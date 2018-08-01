@@ -611,4 +611,7 @@ type GetBlockStatsResult struct {
 
 	OutputCountBins []int64 `json:"output_count_bins"`
 	DustBins        []int64 `json:"dust_bins"`
+
+	Mto_consolidations int64 `json:"mto_consolidations"`
+	Mto_output_count   int64 `json:"mto_output_count"`
 }
