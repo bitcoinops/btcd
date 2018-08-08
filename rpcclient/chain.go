@@ -426,6 +426,31 @@ func (c *Client) GetBlockHeaderVerbose(blockHash *chainhash.Hash) (*btcjson.GetB
 	return c.GetBlockHeaderVerboseAsync(blockHash).Receive()
 }
 
+type FutureGetMempoolInfoResult chan *response
+
+func (c *Client) GetMempoolInfo() (*btcjson.GetMempoolInfoResult, error) {
+	return c.GetMempoolInfoAsync().Receive()
+}
+
+func (c *Client) GetMempoolInfoAsync() FutureGetMempoolInfoResult {
+	cmd := btcjson.NewGetMempoolInfoCmd()
+	return c.sendCmd(cmd)
+}
+
+func (r FutureGetMempoolInfoResult) Receive() (*btcjson.GetMempoolInfoResult, error) {
+	res, err := receiveFuture(r)
+	if err != nil {
+		return nil, err
+	}
+	// Unmarshal the raw result into a BlockResult.
+	var mempoolInfoResult btcjson.GetMempoolInfoResult
+	err = json.Unmarshal(res, &mempoolInfoResult)
+	if err != nil {
+		return nil, err
+	}
+	return &mempoolInfoResult, nil
+}
+
 // FutureGetMempoolEntryResult is a future promise to deliver the result of a
 // GetMempoolEntryAsync RPC invocation (or an applicable error).
 type FutureGetMempoolEntryResult chan *response
