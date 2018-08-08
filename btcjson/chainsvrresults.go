@@ -572,6 +572,10 @@ type GetBlockStatsResult struct {
 	MinFeeRate int64 `json:"minfeerate"`
 	MinTxSize  int64 `json:"mintxsize"`
 
+	Per_90th_fee      int64 `json:"per_90th_fee"`
+	Per_90th_fee_rate int64 `json:"per_90th_fee_rate"`
+	Per_90th_tx_size  int64 `json:"per_90th_tx_size"`
+
 	Outs              int64 `json:"outs"`
 	Subsidy           int64 `json:"subsidy"`
 	SegWitTotalSize   int64 `json:"swtotal_size"`
@@ -598,20 +602,29 @@ type GetBlockStatsResult struct {
 	TxsSpendingNativeP2WPKHOutputs int64 `json:"txs_spending_native_p2wpkh_outputs"`
 	TxsSpendingNativeP2WSHOutputs  int64 `json:"txs_spending_native_p2wsh_outputs"`
 
+	Value_of_native_P2WPKH_outputs_spent int64 `json:"value_of_native_P2WPKH_outputs_spent" sql:",notnull"`
+	Value_of_native_P2WSH_outputs_spent  int64 `json:"value_of_native_P2WSH_outputs_spent" sql:",notnull"`
+	Value_of_nested_P2WPKH_outputs_spent int64 `json:"value_of_nested_P2WPKH_outputs_spent" sql:",notnull"`
+	Value_of_nested_P2WSH_outputs_spent  int64 `json:"value_of_nested_P2WSH_outputs_spent" sql:",notnull"`
+	Value_of_new_P2WPKH_outputs          int64 `json:"value_of_new_P2WPKH_outputs" sql:",notnull"`
+	Value_of_new_P2WSH_outputs           int64 `json:"value_of_new_P2WSH_outputs" sql:",notnull"`
+
 	NewP2WPKHOutputs int64 `json:"new_p2wpkh_outputs"`
 	NewP2WSHOutputs  int64 `json:"new_p2wsh_outputs"`
 
 	TxsCreatingP2WPKHOutputs int64 `json:"txs_creating_p2wpkh_outputs"`
 	TxsCreatingP2WSHOutputs  int64 `json:"txs_creating_p2wsh_outputs"`
 
-	TxsSignallingRBF    int64 `json:"txs_signalling_rbf"`
-	TxsConsolidating    int64 `json:"txs_consolidating"`
-	OutputsConsolidated int64 `json:"outputs_consolidated"`
-	TxsBatching         int64 `json:"txs_batching"`
+	TxsSignallingOptInRBF int64 `json:"txs_signalling_opt_in_rbf"`
+	TxsConsolidating      int64 `json:"txs_consolidating"`
+	OutputsConsolidated   int64 `json:"outputs_consolidated"`
+	TxsBatching           int64 `json:"txs_batching"`
 
 	OutputCountBins []int64 `json:"output_count_bins"`
 	DustBins        []int64 `json:"dust_bins"`
 
 	Mto_consolidations int64 `json:"mto_consolidations"`
 	Mto_output_count   int64 `json:"mto_output_count"`
+	Mto_avg_fee        int64 `json:"mto_avg_fee"`
+	Mto_avg_value      int64 `json:"mto_avg_value"`
 }
