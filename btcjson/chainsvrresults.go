@@ -263,18 +263,31 @@ type GetPeerInfoResult struct {
 	SyncNode       bool    `json:"syncnode"`
 }
 
+type MempoolEntryFees struct {
+	BaseFee     float64 `json:"base"`
+	ModifiedFee float64 `json:"modified"`
+	AncestorFee float64 `json:"descendant"`
+}
+
 // GetRawMempoolVerboseResult models the data returned from the getrawmempool
 // command when the verbose flag is set.  When the verbose flag is not set,
 // getrawmempool returns an array of transaction hashes.
 type GetRawMempoolVerboseResult struct {
-	Size             int32    `json:"size"`
-	Vsize            int32    `json:"vsize"`
-	Fee              float64  `json:"fee"`
-	Time             int64    `json:"time"`
-	Height           int64    `json:"height"`
-	StartingPriority float64  `json:"startingpriority"`
-	CurrentPriority  float64  `json:"currentpriority"`
-	Depends          []string `json:"depends"`
+	Fees            MempoolEntryFees `json:"fees"`
+	Size            int32            `json:"size"`
+	Fee             float64          `json:"fee"`
+	ModifiedFee     float64          `json:"modifiedfee"`
+	Time            int64            `json:"time"`
+	Height          int64            `json:"height"`
+	DescendantCount int32            `json:"descendantcount"`
+	DescendantSize  int32            `json:"descendantsize"`
+	DescendantFees  int32            `json:"descendantfees"`
+	AncestorCount   int32            `json:"ancestorcount"`
+	AncestorSize    int32            `json:"ancestorsize"`
+	AncestorFees    int32            `json:"ancestorfees"`
+	WitnessTxId     string           `json:"wtxid"`
+	Depends         []string         `json:"depends"`
+	Spentby         []string         `json:"spentby"`
 }
 
 // ScriptPubKeyResult models the scriptPubKey data of a tx script.  It is
