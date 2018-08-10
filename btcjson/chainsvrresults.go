@@ -581,18 +581,15 @@ type GetBlockStatsResult struct {
 	MaxFeeRate int64 `json:"maxfeerate"`
 	MaxTxSize  int64 `json:"maxtxsize"`
 
-	MedianFee     int64 `json:"medianfee"`
-	MedianFeeRate int64 `json:"medianfeerate"`
-	MedianTime    int64 `json:"mediantime"`
-	MedianTxSize  int64 `json:"mediantxsize"`
+	MedianFee    int64 `json:"medianfee"`
+	MedianTime   int64 `json:"mediantime"`
+	MedianTxSize int64 `json:"mediantxsize"`
 
 	MinFee     int64 `json:"minfee"`
 	MinFeeRate int64 `json:"minfeerate"`
 	MinTxSize  int64 `json:"mintxsize"`
 
-	Per_90th_fee      int64 `json:"per_90th_fee"`
-	Per_90th_fee_rate int64 `json:"per_90th_fee_rate"`
-	Per_90th_tx_size  int64 `json:"per_90th_tx_size"`
+	FeeratePercentiles []int `json:"feerate_percentiles"`
 
 	Outs              int64 `json:"outs"`
 	Subsidy           int64 `json:"subsidy"`
