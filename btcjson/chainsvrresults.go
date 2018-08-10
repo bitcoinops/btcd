@@ -264,9 +264,10 @@ type GetPeerInfoResult struct {
 }
 
 type MempoolEntryFees struct {
-	BaseFee     float64 `json:"base"`
-	ModifiedFee float64 `json:"modified"`
-	AncestorFee float64 `json:"descendant"`
+	BaseFee       float64 `json:"base"`
+	ModifiedFee   float64 `json:"modified"`
+	AncestorFee   float64 `json:"ancestor"`
+	DescendantFee float64 `json:"descendant"`
 }
 
 // GetRawMempoolVerboseResult models the data returned from the getrawmempool
