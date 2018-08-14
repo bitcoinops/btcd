@@ -617,12 +617,12 @@ type GetBlockStatsResult struct {
 	TxsSpendingNativeP2WPKHOutputs int64 `json:"txs_spending_native_p2wpkh_outputs"`
 	TxsSpendingNativeP2WSHOutputs  int64 `json:"txs_spending_native_p2wsh_outputs"`
 
-	Value_of_native_P2WPKH_outputs_spent int64 `json:"value_of_native_P2WPKH_outputs_spent" sql:",notnull"`
-	Value_of_native_P2WSH_outputs_spent  int64 `json:"value_of_native_P2WSH_outputs_spent" sql:",notnull"`
-	Value_of_nested_P2WPKH_outputs_spent int64 `json:"value_of_nested_P2WPKH_outputs_spent" sql:",notnull"`
-	Value_of_nested_P2WSH_outputs_spent  int64 `json:"value_of_nested_P2WSH_outputs_spent" sql:",notnull"`
-	Value_of_new_P2WPKH_outputs          int64 `json:"value_of_new_P2WPKH_outputs" sql:",notnull"`
-	Value_of_new_P2WSH_outputs           int64 `json:"value_of_new_P2WSH_outputs" sql:",notnull"`
+	Value_of_native_P2WPKH_outputs_spent   int64 `json:"value_of_native_P2WPKH_outputs_spent" sql:",notnull"`
+	Value_of_native_P2WSH_outputs_spent    int64 `json:"value_of_native_P2WSH_outputs_spent" sql:",notnull"`
+	Value_of_nested_P2WPKH_outputs_spent   int64 `json:"value_of_nested_P2WPKH_outputs_spent" sql:",notnull"`
+	Value_of_nested_P2WSH_outputs_spent    int64 `json:"value_of_nested_P2WSH_outputs_spent" sql:",notnull"`
+	Value_of_native_P2WPKH_outputs_created int64 `json:"value_of_native_P2WPKH_outputs_created" sql:",notnull"`
+	Value_of_native_P2WSH_outputs_created  int64 `json:"value_of_native_P2WSH_outputs_created" sql:",notnull"`
 
 	NewP2WPKHOutputs int64 `json:"new_p2wpkh_outputs"`
 	NewP2WSHOutputs  int64 `json:"new_p2wsh_outputs"`
@@ -640,6 +640,5 @@ type GetBlockStatsResult struct {
 
 	Mto_consolidations int64 `json:"mto_consolidations"`
 	Mto_output_count   int64 `json:"mto_output_count"`
-	Mto_avg_fee        int64 `json:"mto_avg_fee"`
-	Mto_avg_value      int64 `json:"mto_avg_value"`
+	Mto_total_value    int64 `json:"mto_total_value"`
 }
